@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import './index.css';
 
 import { BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory } from 'react-router-dom';
+import createHashHistory from 'history/createHashHistory'
 
 // function App() {
 //   return (
@@ -25,12 +26,14 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory } fr
 //   );
 // }
 
+const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL});
 
 function App() {
   const name = 'John Doe'
-  const isAuthenticated = false
+  const isAuthenticated = true
+  // const history = useHistory()
   return (
-    <Router>
+    <Router history={hashHistory}>
       <main>
         <nav>
           <ul>
@@ -42,21 +45,19 @@ function App() {
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </nav>
-
-        <Switch>
-          <Route path="/" exact component={Home} />
-          {/* <Route path="/about" component={About} /> */}
-          {isAuthenticated ?
-            <>
-              <Route path="/about/:name" component={About} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/work" component={Work} />
-              {/* <Route path="/test" component={Test} /> */}
-            </> : <Redirect to="/" />
-          }
-          <Route render={() => <h1>404: page not found</h1>} />
-        </Switch>
-
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {/* <Route path="/about" component={About} /> */}
+            {isAuthenticated ?
+              <>
+                <Route path="/about/:name" component={About} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/work" component={Work} />
+                {/* <Route path="/test" component={Test} /> */}
+              </> : <Route path="/noAccess" component={NoAccess} />
+            }
+            <Route render={() => <h1>404: page not found</h1>} />
+          </Switch>
       </main>
     </Router>
   );
@@ -93,17 +94,28 @@ const Contact = ({ history }) => (
   </Fragment>
 );
 
-// Works
+// Work
 const Work = () => {
   const history = useHistory()
   return (
     <Fragment>
       <h1>Work</h1>
-      <button onClick={() => history.push('/')} >Go to home</button>
+      <button onClick={() => history.push('/')} >Go back home</button>
       <FakeText />
     </Fragment>
   );
 }
+
+// Work
+const NoAccess = () => {
+  return (
+    <Fragment>
+      <h1>You do not have access to that page</h1>
+      <FakeText />
+    </Fragment>
+  );
+}
+
 
 const FakeText = () => (
   <p>
