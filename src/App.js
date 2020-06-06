@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 // import logo from './logo.svg';
 import './index.css';
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect, useHistory, HashRouter } from 'react-router-dom';
 import createHashHistory from 'history/createHashHistory'
 
 // function App() {
@@ -33,7 +33,7 @@ function App() {
   const isAuthenticated = true
   // const history = useHistory()
   return (
-    <Router history={hashHistory}>
+    <Router basename="/reactDadJokesSite">
       <main>
         <nav>
           <ul>

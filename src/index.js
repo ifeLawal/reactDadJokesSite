@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+// import Container from './reduxReact'
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+import DadJokesPage from './DadJokesPage';
+import {quoteData} from './data'
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+const startingQuoteIndex = getRandomInt(quoteData.quotes.length);
+quoteData.counter = startingQuoteIndex;
+const store = createStore(rootReducer, {
+  quotesReducerNew: quoteData
+});
+
+console.log(store.getState());
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <DadJokesPage />
+  </Provider>,
   document.getElementById('root')
 );
 
