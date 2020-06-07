@@ -27,7 +27,7 @@ function updateColor () {
         { opacity: 0},
         500,
         function() {
-            $(this).animate({ opacity: 1, backgroundColor: colorList[randInt], borderColor: colorList[randInt]}, 250)
+            $(this).animate({ opacity: 1, backgroundColor: colorList[randInt] }, 250)
           }
       );
       $('.icon').animate(
@@ -93,11 +93,11 @@ class DadJokesPage extends React.Component {
             <section id="quote-section">
                 <div className="container h-100">
                     
-                    <div className="row h-100 justify-content-center align-items-center">
-                    <div className="row justify-content-center"> This will soon have dad jokes but for now here is a quote:</div>
-                        <div className="row">
+                    <div className="row h-100 justify-content-center align-items-center pl-5 pr-5">
+                    <div id="quote-welcome" className="row justify-content-center text-center"> A simple random quote machine. The icons allow you to share the wisdom! </div>
+                        <div className="row w-100">
                             <div className="col text-center">
-                                <div id="quote-block" className="ml-auto mr-auto ">
+                                <div id="quote-block" className="ml-auto mr-auto">
 
                                     <div id="quote-text"><span className="fas fa-quote-left icon"></span> {this.props.quote}</div>
                                     <div className="d-flex justify-content-end p-3">
@@ -111,9 +111,9 @@ class DadJokesPage extends React.Component {
                                             </div>
                                         </div>
                                         <div className="col-12 col-sm-6">
-                                            <div className="d-flex justify-content-end">
+                                            <div className="d-flex justify-content-between flex-wrap">
                                                 <button id="prev-quote" className="btn btn-primary quote-button" onClick={this.prevQuote}>Prev</button>
-                                                <button id="next-quote" className="ml-3 btn btn-primary quote-button" onClick={this.nextQuote}>Next</button>
+                                                <button id="next-quote" className="btn btn-primary quote-button" onClick={this.nextQuote}>Next</button>
                                             </div>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@ class DadJokesPage extends React.Component {
                         </div>
                         
                         <div className="row">
-                            by Ife Lawal. New Auto quote in 
+                            by Ife Lawal.
                            
                         </div>
                     </div>
