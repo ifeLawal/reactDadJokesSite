@@ -16,6 +16,17 @@ object-assign
    */
 
 /*!
+ * jQuery Color Animations v@VERSION
+ * https://github.com/jquery/jquery-color
+ *
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * Date: @DATE
+ */
+
+/*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
