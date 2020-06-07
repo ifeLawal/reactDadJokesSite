@@ -1,47 +1,32 @@
-// creates an array object that stores a quote object that contains the quote
 
-import { Switch } from "react-router-dom";
+// the state that I currently work with looks like this 
+// state = { quotesReducerNew: { counter:0, quotes:[] } }
 
-// the state currently looks like this 
-// state = {quotesReducerNew: { counter:0, quotes:[] } }
 // the initial state object below is ideally what the state object should look like
-// accessing counter and the array of quotes directly
+// accessing counter and the array of quotes directly rather than through quotesReducerNew
 const initialState = {
     counter: 0,
     quotes: []
 }
 
-// text and author
-const quotesReducer = (state = [], action) => {
-    switch(action.type) {
-        case 'ADD_QUOTE':
-            return [...state, {
-                quote: action.text,
-                quoteMaster: action.quoteMaster
-            }];
-        default:
-            return state;
-    }
-}
+// an attempt to start with two seperate reducers that would be combined
+// this reducer held quote and quote master data
+// still considering if this method is possible
+// const quotesReducer = (state = [], action) => {
+//     switch(action.type) {
+//         case 'ADD_QUOTE':
+//             return [...state, {
+//                 quote: action.text,
+//                 quoteMaster: action.quoteMaster
+//             }];
+//         default:
+//             return state;
+//     }
+// }
 
-// object structure
-// {counter: int, array[{quotes:str,quotemaster:str}]}
-function wrapCounterInObject(obj, num) {
-    if(obj.array.length < num) {
-       return Object.assign({}, [...obj], {
-        counter: 0,
-       });
-    } else if(num < 0) {
-        return Object.assign({}, {
-            counter: obj.array.length,
-        })
-    } else {
-        return Object.assign({}, {
-            counter: num,
-        });
-    }
-}
-
+// self combined reducer that handles counter increments and decrement aka going
+// from next quote and previous quote
+// as well as the future functionality of a user adding quotes
 const quotesReducerNew = (state = initialState, action) => {
     let obj = state.quotesReducerNew;
     switch(action.type) {
@@ -52,7 +37,7 @@ const quotesReducerNew = (state = initialState, action) => {
                         ...state.quotes,
                         {
                             quote: action.text,
-                            quoteMaster: action.author
+                            author: action.author
                         }
                     ]
                 }

@@ -8,17 +8,15 @@ import rootReducer from './reducers'
 import DadJokesPage from './DadJokesPage';
 import {quoteData} from './data'
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-const startingQuoteIndex = getRandomInt(quoteData.quotes.length);
-quoteData.counter = startingQuoteIndex;
+console.log(quoteData.counter);
+// set up the redux store and give it a starting state with the populated quotes
 const store = createStore(rootReducer, {
   quotesReducerNew: quoteData
 });
 
+// debug the state of the store
 console.log(store.getState());
+
 
 ReactDOM.render(
   <Provider store={store}>
