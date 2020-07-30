@@ -9,4 +9,4 @@ by Sergey Kryvetsgoes talks about working with react router and img,css,and scss
 
 # [4Cs Presentation](https://docs.google.com/presentation/d/1P451TO_dqG3uG_Sjr95F7DW2lsBwWMeJsvREGmMjeoQ/edit#slide=id.p)
 
-# WeWinBig #KepTeam(https://docs.google.com/presentation/d/1QoXPtW6VIagKicuMwjRJQz8hs1TXOdULPAVe618kvPQ/edit#slide=id.g8d237066ab_0_311)
+# [WeWinBig #KepTeam](https://docs.google.com/presentation/d/1QoXPtW6VIagKicuMwjRJQz8hs1TXOdULPAVe618kvPQ/edit#slide=id.g8d237066ab_0_311)
