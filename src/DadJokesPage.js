@@ -106,8 +106,8 @@ class DadJokesPage extends React.Component {
                                     <div className="mt-4 d-flex align-items-center flex-wrap">
                                         <div className="col-12 col-sm-6">
                                             <div className="d-flex justify-content-start">
-                                                <a href={tweet}><i className="fab fa-twitter-square icon"></i></a>
-                                                <a href={tumblr}><i className="ml-2 fab fa-tumblr-square icon"></i></a>
+                                                <a href={tweet}><i className="btn fab fa-twitter-square icon"></i></a><div className="btn btn-default pull-left">
+                                                <a href={tumblr}><i className="ml-2 fab fa-tumblr-square icon"></i></a></div>
                                             </div>
                                         </div>
                                         <div className="col-12 col-sm-6">

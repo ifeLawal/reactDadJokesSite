@@ -71,11 +71,11 @@ $color: nth($colorList, random(7));
 
   @media only screen and (max-width:400px) {
     #quote-section {
-      font-size: 10px;
+      font-size: 15px;
       #quote-block{
         max-width: 100%;
         #quote-master {
-          font-size: 8px;
+          font-size: 13px;
         }
       }
     }
